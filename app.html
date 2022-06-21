@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name*: Coding Project by Greg Layton</title>
+    <title>RADAR: Coding Project by Greg Layton</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +14,9 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
     <!-- google font goes here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/site.css">
 
@@ -30,7 +33,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="https://glayton.com/"><img src="/img/GL Logo Small Dark.svg"
                     alt="Greg Layton Logo" height="36" class="d-inline-block"></a>
-            <span class="logoFont ps-2 pe-4" style="font-size:40px;"> App Name*</span>
+            <span class="logoFont ps-2 pe-4" style="font-size:40px;"> RADAR</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span>
@@ -43,7 +46,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="app.html">The App</a>
+                        <a class="nav-link active" aria-current="page" href="app.html"><span>The App</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="code.html">The Code</a>
@@ -56,8 +59,38 @@
         </div>
     </nav>
     <main class="flex-shrink-0">
-        <div class="container">
+        <div class="container mt-5">
             <!--  -->
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col">
+                    <h1 class="display-6 lh-1 mb-3 border border-4 rounded-pill text-center lh-1 logoBG logoFont">RADAR
+                    </h1>
+                    <h4 class="blockquote">Will your word be the same backwards as forwards(a palindrome)? Use RADAR to find out!</h4> 
+                    <h5 class="lead"> This app only compares Alphabetic characters and not numbers or special characters.</h5>
+                </div>
+                <div class="col">
+                    <h5>Enter a string (series of characters) to check.</h5>
+                    <form class="row gx-3 gy-2">
+                        <div class="col">
+                            <input type="text" name="stringBox" id="userString" class="form-control"
+                                placeholder="Enter a string" aria-label="Enter a string">
+                        </div>
+                        <div class="col-12">
+                            <button type="button" id="btnSubmit" class="btn btn-dark">GO!</button>
+                        </div>
+                        <div class="alert mt-5 invisible fade show" id="alert" role="alert">
+                            <h4 class="alert-heading">Thanks!</h4>
+                            <hr>
+                            <p class="mb-0" id="message">
+                                <!-- inserts message here -->
+                            </p>
+                            <div class="col-12 mt-4">
+                                <button type="button" id="btnClear" class="btn btn-danger">Clear Form</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
         <footer class="footer mt-auto py-3 sticky-footer">
@@ -98,6 +131,12 @@
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
         </script>
         <script src="/js/site.js"></script>
+        <script>
+            document.getElementById("btnSubmit").addEventListener("click", getString)
+        </script>
+        <script>
+            document.getElementById("btnClear").addEventListener("click", clearForm)
+        </script>
 </body>
 
 </html>

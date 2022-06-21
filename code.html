@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name*: Coding Project by Greg Layton</title>
+    <title>RADAR: Coding Project by Greg Layton</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +14,9 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
     <!-- google fonts go here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/css/prism.css">
@@ -31,7 +34,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="https://glayton.com/"><img src="/img/GL Logo Small Dark.svg"
                     alt="Greg Layton Logo" height="36" class="d-inline-block"></a>
-            <span class="logoFont ps-2 pe-4" style="font-size:40px;"> App Name*</span>
+            <span class="logoFont ps-2 pe-4" style="font-size:40px;"> RADAR</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span>
@@ -47,7 +50,7 @@
                         <a class="nav-link" href="app.html">The App</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
+                        <a class="nav-link active" aria-current="page" href="code.html"><span>The Code</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://glayton.com/about">About Me</a>
@@ -58,22 +61,66 @@
     </nav>
     <main class="flex-shrink-0">
         <div class="container py-4 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for App Name</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for RADAR</h2>
             <div class="row row-cols-1 row-cols-lg-2 ">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="lang-js">
-                            // Call Hello World
-                            function HelloWorld(){
-                            alert("Hello World!");
+                            //Controller
+                            function getString(){
+                                let userString = document.getElementById("userString").value;
+                                displayString(isPalindrome(userString));
+                            }
+
+                            // takes in the string input and compares its reversed version to see if it is a palindrome
+                            function isPalindrome(origString){
+                                let message = "An Error Occurred, please reset and try again.";
+                                let stringToCheck = origString.trim().replace(/[^a-zA-Z]/g,'').toUpperCase();
+                                if(stringToCheck == ""){
+                                message = `This app does not compare special characters`;
+                                }
+                                else if (stringToCheck == reverseString(stringToCheck)) {
+                                message = `Your Palindrome string is: <b>${stringToCheck}</b>`;
+                                }
+                                else{
+                                message = `Your string: <b class="text-danger">${stringToCheck}</b> was not a Palindrome.`;
+                                }
+                                return message;
+                            }
+
+                            //reverse the input string
+                            function reverseString(origString){
+                                let reversedString = [];
+                                for (i=origString.length; i>0; i--) {
+                                    reversedString += origString[i-1];
+                                };
+                                return reversedString;
+                            }
+
+                            //display the results of the app
+                            function displayString(message){
+                                document.getElementById("message").innerHTML = message;
+                                document.getElementById("alert").classList.remove("invisible");
+                            }
+
+                            // clear form
+                            function clearForm(){
+                                location.reload();
                             }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>Descriptions of the code structure</p>
-                    <h5>Hello World</h5>
-                    <p>Description of the codes function</p>
+                    <p>Controller function to run the app. The logic and display are separated out into different functions.</p>
+                    <h5>isPalindrome()</h5>
+                    <p>This takes the input string and removes any whitespace, as well as special characters.
+                        It also capitalizes the string to make the comparison easier.
+                        Creates the appropriate message to be passed to the HTML based on evaluation.
+                    </p>
+                    <h5>reverseString()</h5>
+                    <p>Reverses the input string.</p>
+                    <h5>displayString()</h5>
+                    <p>Displays the created message and displays the results.</p>
                 </div>
             </div>
         </div>

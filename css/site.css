@@ -8,10 +8,15 @@
 }
 /* for project name */
 .logoFont{
-    font-family: 'Grandstander',
-    cursive;
-    color: rgb(85, 205, 85);
+    font-family: 'Barlow',
+    sans-serif;
+    color: #cdffa0;
 }
+
+.logoBG {
+    background-color: var(--dark-color);
+}
+
 /* for attribution of image */
 .imageAttrib{
     color: var(--dark-color);
@@ -36,6 +41,10 @@ nav {
 }
 
 .navbar a:hover {
+    color: var(--secondary-color);
+}
+
+.navbar a span {
     color: var(--secondary-color);
 }
 

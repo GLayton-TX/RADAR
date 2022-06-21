@@ -1,2 +1,2 @@
-# MiniSiteTemplate
-Template for smaller projects/coding challenges
+# RADAR
+Coding challenge using Palindromes.
